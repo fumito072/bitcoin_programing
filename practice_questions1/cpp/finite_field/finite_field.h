@@ -3,13 +3,18 @@
 
 #include <iostream>
 #include <string>
+#include <math.h>
 
 class FieldElement{
     public:
-        void init(long long num, long long prime);
-        std::string __repr__();
-        bool __ne__(const FieldElement& other);
-        bool __eq__(const FieldElement& other);
+        FieldElement(long long num, long long prime);
+        std::string repr();
+        bool operator!=(const FieldElement& other);
+        bool operator==(const FieldElement& other);
+        FieldElement *operator+(const FieldElement &other);
+        FieldElement *operator-(const FieldElement &other);
+        FieldElement *operator*(const FieldElement &other);
+        FieldElement *Pow(const FieldElement &other,int number);
     
     private:
         long long num;
